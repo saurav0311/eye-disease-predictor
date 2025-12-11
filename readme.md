@@ -1,21 +1,15 @@
-Eye Disease Image Classifier
-
-This project uses a deep learning model (TensorFlow) to classify eye OCT images into four groups:
+## Eye Disease Image Classifier 
+This project uses a TensorFlow deep learning model to classify OCT (Optical Coherence Tomography) eye images into four disease categories:
 
 CNV
-
 DME
-
 DRUSEN
-
 NORMAL
 
-The model learns from images in the training folder and is tested using the validation and test folders.
+The model is trained using OCT images and can be used to predict eye conditions from new images.
 
-Dataset Structure
-
-Your dataset must be organized like this:
-
+##  Dataset Structure
+Your dataset should follow this folder format:
 train/
     CNV/
     DME/
@@ -31,51 +25,42 @@ test/
     DME/
     DRUSEN/
     NORMAL/
+Each folder contains images belonging to that class.
 
 
-Each folder contains images for that class.
-
-Installation
-
-Install needed libraries:
-
+##  Installation
+Install required libraries:
 pip install -r requirements.txt
 
-
 requirements.txt
-
-tensorflow==2.15.0
+tensorflow
 matplotlib
 pandas
 seaborn
+numpy
+streamlit
 
-Training the Model
+##  Training the Model
 
-Use the notebook training_model.ipynb to train the model.
-Training may take a long time if you do not have a GPU.
+Use the notebook:
+training_model.ipynb to train your deep learning model. Training may take long if you do not have a GPU.
 
-Making Predictions
+##  Making Predictions
 
-Use app.py or Model_Prediction.ipynb to test the model on new images.
+You can test your trained model using:
+app.py (Streamlit web app)
+Model_Prediction.ipynb
+Upload an OCT image and the model will classify it into one of the four categories.
 
-Common Issues
+## ⚠️ Note About Model Accuracy
 
-The model sometimes predicts the same class a lot.
+This project is mainly for learning and demonstration.  
+Because the model is trained on a limited dataset and training on CPU takes many hours (up to 24 hours), the model may sometimes:
 
-Accuracy may change each time you train.
+- Predict the same class repeatedly  
+- Give different accuracy each time it is trained  
+- Perform differently on new images  
 
-Training can take many hours on a slow computer.
+These issues are normal when training deep learning models without a GPU and with smaller datasets.
 
-These issues are normal for beginner deep learning projects.
 
-Improving Results
-
-Simple ways to improve the model:
-
-Add more images
-
-Use image augmentation
-
-Use transfer learning (pretrained models)
-
-Reduce image size to speed up training
