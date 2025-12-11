@@ -1,0 +1,6 @@
+train/
+val/
+test/
+*.h5
+*.keras
+*.pkl
